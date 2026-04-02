@@ -2,21 +2,17 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import Navbar from "./components/layout/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
     <div>
-      <head>
-        <title>Praktikum Next.js Pages Router</title>
-      </head>
-      <h1>Praktikum Next.js Pages Router</h1>
+      <h1>Nama: Rayhan Heru Arifiansyah</h1>
       <br />
-      <p>Mahasiswa D4 Pengembangan Web</p>
+      <p>NIM: 2341720086</p>
       <br />
-      <a href="http://localhost:3000/about">Halaman About</a>
+      <p>Prodi: D4 Teknik Informatika</p>
     </div>
   );
 }

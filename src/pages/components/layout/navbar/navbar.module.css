@@ -1,9 +1,35 @@
 .navbar {
   width: 100%;
-  height: 60px;
-  background-color: #333;
-  color: white;
+  height: 70px;
+  padding: 0 60px;
+
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  justify-content: space-between;
+
+  background: linear-gradient(135deg, #F54927, #1e293b);
+  color: #ffffff;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.navbar__button {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.navbar__button--primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.navbar__button--danger {
+  background-color: #ef4444;
+  color: white;
 }

@@ -1,54 +1,23 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import ProdukHeroSection from "@/views/produk/HeroSection";
-import ProdukMainSection from "@/views/produk/MainSection";
+import TampilanProduk from "../../views/produk";
+import useSWR from "swr";
+import fetcher from "../../utils/swr/fetcher";
 
-type ProductType = {
-  id: string;
-  nama: string;
-  harga: number;
-  ukuran: string;
-  warna: string;
-};
+// const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const kategori = () => {
-  // const [isLogin, setIsLogin] = useState(false);
-  // const { push } = useRouter();
+  const [isLogin, setIsLogin] = useState(true);
+  const { push } = useRouter();
   const [products, setProducts] = useState([]);
+  // console.log("products:", products);
 
-  // useEffect(() => {
-  //   // Cek apakah ada token di localStorage
-  //   const token = localStorage.getItem("token");
-
-  //   if (!token) {
-  //     push("/auth/login");
-  //   } else {
-  //     setIsLogin(true);
-  //   }
-  // }, [push]);
-
-  useEffect(() => {
-    fetch("/api/produk")
-      .then((responseData) => responseData.json())
-      .then((responseData) => {
-        setProducts(responseData.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching products:", error);
-      });
-  }, []);
+  const { data, error, isLoading } = useSWR("/api/produk", fetcher);
+  // cek apakah data, error, dan isLoading sudah benar
 
   return (
     <div>
-      <h1>Daftar Produk</h1>
-      {products.map((product: ProductType) => (
-        <div key={product.id}>
-          <h2>{product.nama}</h2>
-          <p>Harga: Rp {product.harga.toLocaleString()}</p>
-          <p>Ukuran: {product.ukuran}</p>
-          <p>Warna: {product.warna}</p>
-        </div>
-      ))}
+      <TampilanProduk products={isLoading ? [] : data.data} />
     </div>
   );
 };

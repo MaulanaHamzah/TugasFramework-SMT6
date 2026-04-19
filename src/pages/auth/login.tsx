@@ -1,13 +1,8 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import styles from "./login.module.css";
-import TampilanLogin from ".";
+import TampilanLogin from "@/views/auth/login";
 
 const halamanLogin = () => {
   return (
-    <>
-      <TampilanLogin />
-    </>
+    <TampilanLogin />
   );
 };
 

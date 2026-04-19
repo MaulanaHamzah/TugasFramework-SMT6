@@ -6,7 +6,7 @@ const Navbar = () => {
 
   return (
     <div className={styles.navbar}>
-      <div className="big">Navbar Component</div>
+      <div className="big">MyApp</div>
       {data ? (
         <>
           <div>Welcome, {data.user?.fullname}</div>

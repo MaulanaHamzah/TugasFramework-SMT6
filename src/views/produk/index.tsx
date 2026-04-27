@@ -1,5 +1,6 @@
 import styles from "../../pages/produk/product.module.scss";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 type ProductType = {
   id: string;
@@ -29,10 +30,11 @@ const TampilanProduk = ({ products = [] }: { products: ProductType[] }) => {
                 style={{ cursor: "pointer" }}
               >
                 <div className={styles.produk__content__item__image}>
-                  <img
+                  <Image
                     src={products.image}
                     alt={products.name}
                     width={200}
+                    height={200}
                   />
                 </div>
                 <h4 className={styles.produk__content__item__name}>
